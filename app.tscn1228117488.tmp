@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://cbrss726ljs2o"]
+
+[ext_resource type="Script" uid="uid://dvpt67f4i1od4" path="res://app.gd" id="1_j6dmo"]
+[ext_resource type="Script" uid="uid://b1fj1qlmrd8a" path="res://titlebar.gd" id="2_qbwvd"]
+[ext_resource type="FontVariation" uid="uid://bs2gkam52yjfm" path="res://Roboto-Bold.tres" id="3_d7sxu"]
+[ext_resource type="Texture2D" uid="uid://bxp4ynklpjljs" path="res://close-icon.png" id="3_i4801"]
+[ext_resource type="Texture2D" uid="uid://dgqv2cjya3fqe" path="res://JVIcon.png" id="3_nee2x"]
+[ext_resource type="Texture2D" uid="uid://kgt48ene2ccx" path="res://NoController-Icon.png" id="6_atqe7"]
+
+[sub_resource type="Theme" id="Theme_j6dmo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6dmo"]
+bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbwvd"]
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_nee2x"]
+font = ExtResource("3_d7sxu")
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4801"]
+bg_color = Color(0.95686275, 0.2627451, 0.21176471, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7sxu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7vdx"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atqe7"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v7vdx"]
+
+[node name="App" type="Control" unique_id=264516273]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j6dmo")
+script = ExtResource("1_j6dmo")
+
+[node name="BGPanel" type="Panel" parent="." unique_id=1419662529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j6dmo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BGPanel" unique_id=101276503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" type="Panel" parent="BGPanel/VBoxContainer" unique_id=1707798061]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qbwvd")
+script = ExtResource("2_qbwvd")
+
+[node name="App_Icon" type="TextureRect" parent="BGPanel/VBoxContainer/TitleBar" unique_id=2032344237]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -15.0
+offset_right = 35.0
+offset_bottom = 15.0
+grow_vertical = 2
+texture = ExtResource("3_nee2x")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="BGPanel/VBoxContainer/TitleBar" unique_id=1186164959]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -11.5
+offset_right = 45.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Joy Toy"
+label_settings = SubResource("LabelSettings_nee2x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close_Button" type="Button" parent="BGPanel/VBoxContainer/TitleBar" unique_id=1673578599]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -10.0
+offset_right = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_i4801")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i4801")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i4801")
+icon = ExtResource("3_i4801")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AppContainer" type="Panel" parent="BGPanel/VBoxContainer" unique_id=569911834]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7sxu")
+
+[node name="MarginContainer" type="MarginContainer" parent="BGPanel/VBoxContainer/AppContainer" unique_id=793227568]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Connected" type="Control" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer" unique_id=226393314]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer/Connected" unique_id=1166563582]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlDropdown" type="OptionButton" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer/Connected/VBoxContainer" unique_id=1290025763]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_vertical = 4
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer/Connected/VBoxContainer" unique_id=525254392]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer/Connected/VBoxContainer/HBoxContainer" unique_id=192926532]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Vibe_Up" type="Button" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer/Connected/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=992911511]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_v7vdx")
+
+[node name="Vibe_Down" type="Button" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer/Connected/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=257607285]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_atqe7")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer/Connected/VBoxContainer/HBoxContainer" unique_id=431438561]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 10.0
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("ViewportTexture_v7vdx")
+
+[node name="Unconnected" type="Control" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer" unique_id=101235452]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BGPanel/VBoxContainer/AppContainer/MarginContainer/Unconnected" unique_id=880239570]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_atqe7")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="button_up" from="BGPanel/VBoxContainer/TitleBar/Close_Button" to="BGPanel/VBoxContainer/TitleBar" method="_on_button_close_up"]
